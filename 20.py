@@ -27,10 +27,10 @@ with open(FILE_NAME, 'r') as file:  #save input in 3D array
     all_images.append(image)
 
 
-def get_borders(matrix, reverse=False):  #return borders of image, usually in format: first row, first column, last row, last column => fr, lr, fc, lc
+def get_borders(matrix, reverse=False):  #return borders of image, usually in format: first row, first column, last row, last column => fr, fc, lr, lc
     if not reverse:
         return matrix[0, :], matrix[:, 0], matrix[len(matrix)-1, :], matrix[:, len(matrix[0])-1]
-    return matrix[len(matrix) - 1, :], matrix[:, len(matrix[0]) - 1], matrix[0, :], matrix[:, 0] #when finding new image, we need borders reversed
+    return matrix[len(matrix) - 1, :], matrix[:, len(matrix[0]) - 1], matrix[0, :], matrix[:, 0] #when finding new image, we need borders reversed => lr, lc, fr, fc
 
 
 def find_first(dicto):  #find first corner image - from it we will add neoghbouring images
